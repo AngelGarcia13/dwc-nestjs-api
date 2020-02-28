@@ -1,5 +1,4 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
-import { CatsModule } from './modules/cats/cats.module';
 import { LoggerMiddleware } from './middlewares/logger.middleware';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -17,7 +16,6 @@ import { ProfilesModule } from './modules/profiles/profiles.module';
       }),
       inject: [ConfigService],
     }),
-    CatsModule,
     ProfilesModule
   ]
 })

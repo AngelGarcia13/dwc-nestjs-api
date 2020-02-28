@@ -1,14 +1,28 @@
+import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
+
 export class CreateProfileDto {
-    readonly name: string;
-    readonly initials: string;
-    readonly image: string;
-    readonly summary: string;
-    readonly skills: string;
-    readonly linkedin: string;
-    readonly github: string;
-    readonly twitter: string;
-    readonly webpage: string;
-    readonly stackoverflow: string;
-    readonly telegram: string;
-    readonly youtube: string;
+    @ApiProperty()
+    name: string;
+    @ApiProperty()
+    initials: string;
+    @ApiProperty()
+    image: string;
+    @ApiProperty()
+    summary: string;
+    @ApiProperty()
+    skills: string;
+    @ApiPropertyOptional()
+    linkedin: string;
+    @ApiPropertyOptional()
+    github: string;
+    @ApiPropertyOptional()
+    twitter: string;
+    @ApiPropertyOptional()
+    webpage: string;
+    @ApiPropertyOptional()
+    stackoverflow: string;
+    @ApiPropertyOptional()
+    telegram: string;
+    @ApiPropertyOptional()
+    youtube: string;
 }

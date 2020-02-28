@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
 
-export interface Profile extends Document{
+export class Profile extends Document{
     readonly name: string;
     readonly initials: string;
     readonly image: string;

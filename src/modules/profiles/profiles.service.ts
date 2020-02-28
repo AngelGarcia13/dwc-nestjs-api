@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Profile } from './models/interfaces/profile.interface';
+import { Profile } from './models/profile.entity';
 import { CreateProfileDto } from './models/dto/create-profile.dto';
 
 @Injectable()
