@@ -1,4 +1,5 @@
-export class CreateProfileDto {
+
+export class CreateProfileModel {
     name: string;
     initials: string;
     image: string;

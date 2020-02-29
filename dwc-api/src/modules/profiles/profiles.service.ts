@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Profile } from './models/profile.entity';
+import { IProfilesService } from 'dwc-core/dwc-core/domain/services/profiles.service.interface';
 import { CreateProfileDto } from './models/dto/create-profile.dto';
-import { IProfilesService } from './interfaces/profiles.service';
 
 @Injectable()
 export class ProfilesService implements IProfilesService{

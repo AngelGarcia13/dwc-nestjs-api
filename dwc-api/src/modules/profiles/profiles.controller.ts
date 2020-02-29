@@ -1,8 +1,8 @@
 import { Controller, Post, Body, Res, HttpStatus, Get, Inject } from '@nestjs/common';
-import { CreateProfileDto } from './models/dto/create-profile.dto';
 import { Profile } from './models/profile.entity';
 import { ApiTags, ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
-import { IProfilesService } from './interfaces/profiles.service';
+import { IProfilesService } from 'dwc-core/dwc-core/domain/services/profiles.service.interface';
+import { CreateProfileDto } from './models/dto/create-profile.dto';
 
 @ApiTags('profiles')
 @Controller('profiles')
