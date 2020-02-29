@@ -1,7 +1,21 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "dwc-api/src",
   "compilerOptions": {
-    "plugins": ["@nestjs/swagger/plugin"]
+    "plugins": [
+      "@nestjs/swagger/plugin"
+    ],
+    "webpack": true
+  },
+  "projects": {
+    "dwc-core": {
+      "type": "library",
+      "root": "libs/dwc-core",
+      "entryFile": "index",
+      "sourceRoot": "libs/dwc-core/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/dwc-core/tsconfig.lib.json"
+      }
+    }
   }
 }

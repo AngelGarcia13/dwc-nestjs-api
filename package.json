@@ -1,5 +1,5 @@
 {
-  "name": "first-api",
+  "name": "dwc-api",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -7,12 +7,12 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "prettier --write \"dwc-api/src/**/*.ts\" \"test/**/*.ts\" \"libs/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "lint": "eslint \"{dwc-api,src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -61,12 +61,20 @@
       "json",
       "ts"
     ],
-    "rootDir": "src",
+    "rootDir": ".",
     "testRegex": ".spec.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/dwc-api/src/",
+      "<rootDir>/libs/"
+    ],
+    "moduleNameMapper": {
+      "dwc-core/dwc-core/(.*)": "<rootDir>/libs/dwc-core/src/$1",
+      "dwc-core/dwc-core": "<rootDir>/libs/dwc-core/src"
+    }
   }
 }

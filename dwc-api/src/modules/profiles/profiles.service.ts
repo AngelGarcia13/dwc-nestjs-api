@@ -3,9 +3,10 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Profile } from './models/profile.entity';
 import { CreateProfileDto } from './models/dto/create-profile.dto';
+import { IProfilesService } from './interfaces/profiles.service';
 
 @Injectable()
-export class ProfilesService {
+export class ProfilesService implements IProfilesService{
     constructor(@InjectModel('Profile') private readonly profileModel: Model<Profile>) {}
 
   async create(createProfileDto: CreateProfileDto): Promise<Profile> {

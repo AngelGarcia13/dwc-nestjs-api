@@ -1,13 +1,13 @@
-import { Controller, Post, Body, Res, HttpStatus, Get } from '@nestjs/common';
-import { ProfilesService } from './profiles.service';
+import { Controller, Post, Body, Res, HttpStatus, Get, Inject } from '@nestjs/common';
 import { CreateProfileDto } from './models/dto/create-profile.dto';
 import { Profile } from './models/profile.entity';
-import { ApiTags, ApiCreatedResponse } from '@nestjs/swagger';
+import { ApiTags, ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
+import { IProfilesService } from './interfaces/profiles.service';
 
 @ApiTags('profiles')
 @Controller('profiles')
 export class ProfilesController {
-    constructor(private profilesService: ProfilesService) { }
+    constructor(@Inject('IProfilesService') private readonly profilesService: IProfilesService) { }
     // add a profile
     @Post()
     @ApiCreatedResponse({
@@ -24,6 +24,10 @@ export class ProfilesController {
 
     // Retrieve profiles list
     @Get()
+    @ApiOkResponse({
+        description: 'Get all profiles.',
+        type: [Profile],
+      })
     async getAllCustomer(@Res() res) {
         const profiles = await this.profilesService.findAll();
         return res.status(HttpStatus.OK).json(profiles);

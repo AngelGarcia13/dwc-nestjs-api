@@ -9,7 +9,18 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "dwc-core/dwc-core": [
+        "libs/dwc-core/src"
+      ],
+      "dwc-core/dwc-core/*": [
+        "libs/dwc-core/src/*"
+      ]
+    }
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
