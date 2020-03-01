@@ -1,13 +1,13 @@
 import { Controller, Post, Body, Res, HttpStatus, Get, Inject } from '@nestjs/common';
 import { Profile } from './models/profile.entity';
 import { ApiTags, ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
-import { IProfilesService } from 'dwc-core/dwc-core/domain/services/profiles.service.interface';
 import { CreateProfileDto } from './models/dto/create-profile.dto';
+import { IProfilesUseCases } from 'dwc-core/dwc-core/use-cases/profiles.usecases.interface';
 
 @ApiTags('profiles')
 @Controller('profiles')
 export class ProfilesController {
-    constructor(@Inject('IProfilesService') private readonly profilesService: IProfilesService) { }
+    constructor(@Inject('IProfilesUseCases') private readonly profilesUseCases: IProfilesUseCases) { }
     // add a profile
     @Post()
     @ApiCreatedResponse({
@@ -15,7 +15,7 @@ export class ProfilesController {
         type: Profile,
       })
     async addProfile(@Res() res, @Body() createProfileDTO: CreateProfileDto) {
-        const profile = await this.profilesService.create(createProfileDTO);
+        const profile = await this.profilesUseCases.createNewProfile(createProfileDTO);
         return res.status(HttpStatus.OK).json({
             message: "Profile has been created successfully",
             profile
@@ -28,8 +28,8 @@ export class ProfilesController {
         description: 'Get all profiles.',
         type: [Profile],
       })
-    async getAllCustomer(@Res() res) {
-        const profiles = await this.profilesService.findAll();
+    async getAll(@Res() res) {
+        const profiles = await this.profilesUseCases.findAllProfiles();
         return res.status(HttpStatus.OK).json(profiles);
     }
 }
