@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Profile } from '../modules/profiles/models/profile.entity';
-import { IProfilesRepository } from 'dwc-core/dwc-core/domain/repositories/profiles.repository.interface';
+import { IProfilesRepository } from 'dwc-core/dwc-core/data/repositories/profiles.repository.interface';
 import { CreateProfileDto } from '../modules/profiles/models/dto/create-profile.dto';
 
 @Injectable()

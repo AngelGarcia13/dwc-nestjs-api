@@ -1,5 +1,5 @@
-import { CreateProfileModel } from "../models/create-profile.model";
-import { Profile } from "../models/profile.model";
+import { CreateProfileModel } from "../../domain/models/create-profile.model";
+import { Profile } from "../../domain/models/profile.model";
 
 export interface IProfilesRepository{
     create(createProfileModel: CreateProfileModel): Promise<Profile>
